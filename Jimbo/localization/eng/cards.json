@@ -1,6 +1,6 @@
 {
-  "JIMBO-JIMBO_STRIKE.description": "Deal {Damage:diff()} damage.",
-  "JIMBO-JIMBO_STRIKE.title": "Strike",
-  "JIMBO-JIMBO_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "JIMBO-JIMBO_DEFEND.title": "Defend"
+  "JIMBO-STRIKE_JIMBO.description": "Deal {Damage:diff()} damage.",
+  "JIMBO-STRIKE_JIMBO.title": "Strike",
+  "JIMBO-DEFEND_JIMBO.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "JIMBO-DEFEND_JIMBO.title": "Defend"
 }

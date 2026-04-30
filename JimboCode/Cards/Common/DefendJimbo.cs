@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Jimbo.JimboCode.Cards.Common;
 
-public class JimboDefend() : Jimbo.JimboCode.Cards.JimboCard(1, CardType.Attack,
+public class DefendJimbo() : Jimbo.JimboCode.Cards.JimboCard(1, CardType.Attack,
     CardRarity.Basic, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5M, ValueProp.Move)];

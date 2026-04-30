@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Jimbo.JimboCode.Cards.Common;
 
 [Pool(typeof(JimboCardPool))]
-public class JimboStrike() : JimboCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class StrikeJimbo() : JimboCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6M, ValueProp.Move)];
 

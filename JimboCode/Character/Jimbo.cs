@@ -2,6 +2,8 @@
 using BaseLib.Utils.NodeFactories;
 using Jimbo.JimboCode.Extensions;
 using Godot;
+using Jimbo.JimboCode.Cards.Common;
+using Jimbo.JimboCode.Relics;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -21,27 +23,25 @@ public class Jimbo : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>()
+        ModelDb.Card<StrikeJimbo>(),
+        ModelDb.Card<StrikeJimbo>(),
+        ModelDb.Card<StrikeJimbo>(),
+        ModelDb.Card<StrikeJimbo>(),
+        ModelDb.Card<DefendJimbo>(),
+        ModelDb.Card<DefendJimbo>(),
+        ModelDb.Card<DefendJimbo>(),
+        ModelDb.Card<DefendJimbo>(),
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<BurningBlood>()
+        ModelDb.Relic<Pluto>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<JimboCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<JimboRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<JimboPotionPool>();
-
+    
     /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
         override all the other methods that define those assets.
         These are just some of the simplest assets, given some placeholders to differentiate your character with.
