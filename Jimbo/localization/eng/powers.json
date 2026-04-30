@@ -1,3 +1,5 @@
 {
-  
+  "JIMBO-BANKRUPT.description": "When taking damage, lose all Bankrupt. When losing Bankrupt, lose [gold]Gold[/gold] equal to the amount of Bankrupt lost.",
+  "JIMBO-BANKRUPT.smartDescription": "When taking damage, lose [blue]{Amount}[/blue] Bankrupt. When losing Bankrupt, lose [gold]Gold[/gold] equal to the amount of Bankrupt lost.",
+  "JIMBO-BANKRUPT.title": "Bankrupt"
 }
