@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dlm12rv0sok4u"]
+
+[ext_resource type="Texture2D" uid="uid://5yjpq28o8u10" path="res://Jimbo/images/charui/chips.png" id="1_ki15h"]
+[ext_resource type="FontFile" uid="uid://c3mkxvxc1s6a3" path="res://Jimbo/ui/m6x11plus.ttf" id="1_xh2ha"]
+[ext_resource type="Texture2D" uid="uid://c8xpbhrkh1syn" path="res://Jimbo/images/charui/mult.png" id="2_3rttn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3rttn"]
+texture = ExtResource("1_ki15h")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rmshp"]
+load_path = "res://.godot/imported/score_bg.png-499cc6f2529389bae4da06f61cb70a21.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1ifx"]
+texture = SubResource("CompressedTexture2D_rmshp")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbaa3"]
+texture = ExtResource("2_3rttn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[resource]
+ChipsPanel/base_type = &"PanelContainer"
+ChipsPanel/styles/panel = SubResource("StyleBoxTexture_3rttn")
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.5647059)
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_xh2ha")
+MiscPanel/base_type = &"PanelContainer"
+MiscPanel/styles/panel = SubResource("StyleBoxTexture_x1ifx")
+MultPanel/base_type = &"PanelContainer"
+MultPanel/styles/panel = SubResource("StyleBoxTexture_pbaa3")
+XMargin/base_type = &"MarginContainer"
+XMargin/constants/margin_left = 5
+XMargin/constants/margin_right = 2

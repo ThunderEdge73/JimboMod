@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Jimbo.JimboCode.Powers;
 
-public class Bankrupt : JimboPower
+public class BankruptPower : JimboPower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;

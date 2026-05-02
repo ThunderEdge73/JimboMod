@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7d6yu2sg6nwe"]
+
+[ext_resource type="Theme" uid="uid://dlm12rv0sok4u" path="res://Jimbo/ui/multchips.tres" id="1_h1oqy"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MultChips" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -41.5
+offset_right = 216.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(216, 41.5)
+size_flags_vertical = 4
+theme = ExtResource("1_h1oqy")
+theme_type_variation = &"MiscPanel"
+
+[node name="MultChipsRow" type="HBoxContainer" parent="MultChips"]
+layout_mode = 2
+
+[node name="ChipsBox" type="PanelContainer" parent="MultChips/MultChipsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ChipsPanel"
+
+[node name="ChipsNum" type="Label" parent="MultChips/MultChipsRow/ChipsBox"]
+layout_mode = 2
+text = "1,000,000"
+horizontal_alignment = 2
+
+[node name="XContainer" type="MarginContainer" parent="MultChips/MultChipsRow"]
+layout_mode = 2
+theme_type_variation = &"XMargin"
+
+[node name="XText" type="Label" parent="MultChips/MultChipsRow/XContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.99607843, 0.37254903, 0.33333334, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultBox" type="PanelContainer" parent="MultChips/MultChipsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"MultPanel"
+
+[node name="MultNum" type="Label" parent="MultChips/MultChipsRow/MultBox"]
+layout_mode = 2
+text = "1,000,000"
+vertical_alignment = 1

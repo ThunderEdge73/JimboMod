@@ -1,5 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using Jimbo.JimboCode.Powers;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,73 +10,67 @@ namespace Jimbo.JimboCode.Character;
 
 public static class MultChipsCmd
 {
-    public static void MultiplyMult(Player player, int mult)
+    public static void MultiplyMult(Player player, decimal mult)
     {
         SetMult(player, GetMult(player) * mult);
     }
 
-    public static void AddMult(Player player, int mult)
+    public static void AddMult(Player player, decimal mult)
     {
         SetMult(player, GetMult(player) + mult);
     }
 
-    public static void AddChips(Player player, int chips)
+    public static void AddChips(Player player, decimal chips)
     {
         SetChips(player, GetChips(player) + chips);
     }
     
-    public static int GetChips(Player player)
+    public static decimal GetChips(Player player)
     {
         return player.PlayerCombatState == null ? 0 : MultChipsPointsSingleton.Chips.Get(player.PlayerCombatState);
     }
 
-    public static void SetChips(Player player, int chips)
+    public static void SetChips(Player player, decimal chips)
     {
         if (player.PlayerCombatState == null) return;
         MultChipsPointsSingleton.Chips.Set(player.PlayerCombatState, chips);
     }
 
-    public static int GetMult(Player player)
+    public static decimal GetMult(Player player)
     {
         return player.PlayerCombatState == null ? 0 : MultChipsPointsSingleton.Mult.Get(player.PlayerCombatState);
     }
 
-    public static void SetMult(Player player, int mult)
+    public static void SetMult(Player player, decimal mult)
     {
         if (player.PlayerCombatState == null) return;
         MultChipsPointsSingleton.Mult.Set(player.PlayerCombatState, mult);
     }
 
-    public static int GetPoints(Player player)
+    public static decimal GetPoints(Player player)
     {
-        return player.PlayerCombatState == null ? 0 : MultChipsPointsSingleton.Points.Get(player.PlayerCombatState);
+        return player.Creature.GetPowerAmount<PointsPower>();
     }
 
-    public static int CalculatePointsEarned(Player player)
+    public static decimal CalculatePointsEarned(Player player)
     {
         if (player.PlayerCombatState == null) return 0;
-        return MultChipsPointsSingleton.Chips.Get(player.PlayerCombatState) * MultChipsPointsSingleton.Mult.Get(player.PlayerCombatState);
+        return GetChips(player) * GetMult(player);
     }
 }
 
 public class MultChipsPointsSingleton() : CustomSingletonModel(true, false)
 {
-    public static readonly SpireField<PlayerCombatState, int> Chips = new(() => 0);
-
-    public static readonly SpireField<PlayerCombatState, int> Mult = new(() => 0);
-
-    public static readonly SpireField<PlayerCombatState, int> Points = new(() => 0);
-
-    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (!cardPlay.Card.IsScore() || cardPlay.Card.Owner.PlayerCombatState == null) return Task.CompletedTask;
-        var player = cardPlay.Card.Owner;
-        var totalPoints = MultChipsCmd.CalculatePointsEarned(player) + MultChipsCmd.GetPoints(player);
-        Points.Set(player.PlayerCombatState, totalPoints);
-        Chips.Set(player.PlayerCombatState, 0);
-        Mult.Set(player.PlayerCombatState, 0);
-        return Task.CompletedTask;
-    }
-
+        public static readonly SpireField<PlayerCombatState, decimal> Chips = new(() => 0);
     
+        public static readonly SpireField<PlayerCombatState, decimal> Mult = new(() => 0);
+        
+        public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        {
+            if (!cardPlay.Card.IsScore() || cardPlay.Card.Owner.PlayerCombatState == null) return;
+            var player = cardPlay.Card.Owner;
+            Chips.Set(player.PlayerCombatState, 0);
+            Mult.Set(player.PlayerCombatState, 0);
+            await PowerCmd.Apply<PointsPower>(choiceContext, player.Creature, MultChipsCmd.CalculatePointsEarned(player), player.Creature, cardPlay.Card);
+        }
 }
