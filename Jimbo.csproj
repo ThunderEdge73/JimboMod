@@ -61,6 +61,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="JimboCode\Cards\Common\" />
         <Folder Include="Jimbo\images\card_portraits\big\"/>
         <Folder Include="Jimbo\images\powers\big\"/>
         <Folder Include="Jimbo\images\relics\big\"/>

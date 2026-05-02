@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace Jimbo.JimboCode.Cards.Common;
+namespace Jimbo.JimboCode.Cards.Starter;
 
 public class DefendJimbo() : Jimbo.JimboCode.Cards.JimboCard(1, CardType.Attack,
     CardRarity.Basic, TargetType.Self)

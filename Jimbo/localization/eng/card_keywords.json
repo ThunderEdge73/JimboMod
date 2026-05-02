@@ -1,3 +1,4 @@
 {
-  
+  "JIMBO-SCORE.description": "Gain Points equal to the product of Chips and Mult, then reset Chips and Mult to 0.",
+  "JIMBO-SCORE.title": "Score"
 }

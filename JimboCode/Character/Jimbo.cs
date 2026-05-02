@@ -2,12 +2,10 @@
 using BaseLib.Utils.NodeFactories;
 using Jimbo.JimboCode.Extensions;
 using Godot;
-using Jimbo.JimboCode.Cards.Common;
+using Jimbo.JimboCode.Cards.Starter;
 using Jimbo.JimboCode.Relics;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace Jimbo.JimboCode.Character;
 
@@ -20,7 +18,7 @@ public class Jimbo : PlaceholderCharacterModel
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Masculine;
     public override int StartingHp => 70;
-
+    
     public override IEnumerable<CardModel> StartingDeck =>
     [
         ModelDb.Card<StrikeJimbo>(),
@@ -31,6 +29,8 @@ public class Jimbo : PlaceholderCharacterModel
         ModelDb.Card<DefendJimbo>(),
         ModelDb.Card<DefendJimbo>(),
         ModelDb.Card<DefendJimbo>(),
+        ModelDb.Card<Bet>(),
+        ModelDb.Card<Joke>(),
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
