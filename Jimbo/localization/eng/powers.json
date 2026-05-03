@@ -1,8 +1,8 @@
 {
-  "JIMBO-BANKRUPT_POWER.description": "When taking damage, lose all Bankrupt. When losing Bankrupt, lose [gold]Gold[/gold] equal to the amount of Bankrupt lost.",
-  "JIMBO-BANKRUPT_POWER.smartDescription": "When taking damage, lose [blue]{Amount}[/blue] Bankrupt. When losing Bankrupt, lose [gold]Gold[/gold] equal to the amount of Bankrupt lost.",
-  "JIMBO-BANKRUPT_POWER.title": "Bankrupt",
-  "JIMBO-POINTS_POWER.description": "",
-  "JIMBO-POINTS_POWER.smartDescription": "",
+  "JIMBO-LIABILITY_POWER.description": "When taking damage, lose all Liability. When losing Liability, lose [gold]Gold[/gold] equal to the amount of Liability lost.",
+  "JIMBO-LIABILITY_POWER.smartDescription": "When taking damage, lose [blue]{Amount}[/blue] Liability. When losing Liability, lose [gold]Gold[/gold] equal to the amount of Liability lost.",
+  "JIMBO-LIABILITY_POWER.title": "Liability",
+  "JIMBO-POINTS_POWER.description": "Gained after playing a card with [gold]Score[/gold].",
+  "JIMBO-POINTS_POWER.smartDescription": "Gained after playing a card with [gold]Score[/gold].",
   "JIMBO-POINTS_POWER.title": "Points"
 }

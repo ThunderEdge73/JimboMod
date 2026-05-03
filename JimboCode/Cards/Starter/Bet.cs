@@ -10,14 +10,18 @@ namespace Jimbo.JimboCode.Cards.Starter;
 public class Bet() : JimboCard(1, CardType.Attack,
     CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
         new CalculationBaseVar(6M),
         new ExtraDamageVar(1M),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, creature) => Math.Floor(MultChipsCmd.CalculatePointsEarned(card.Owner) / 10M))
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, creature) =>
+            Math.Floor(
+                MultChipsCmd.CalculatePointsEarned(card.Owner) * card.DynamicVars["ScorePercent"].BaseValue / 100M)),
+        new ("ScorePercent", 10M)
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [JimboKeywords.Score];
-    
+
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
