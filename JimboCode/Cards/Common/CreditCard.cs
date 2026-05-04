@@ -12,15 +12,19 @@ namespace Jimbo.JimboCode.Cards.Common;
 public class CreditCard() : JimboCard(1, CardType.Skill,
     CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(9M, ValueProp.Move), new PowerVar<LiabilityPower>(8M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new BlockVar(8M, ValueProp.Move), new PowerVar<LiabilityPower>(8M)];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<LiabilityPower>()];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await PowerCmd.Apply<LiabilityPower>(choiceContext, Owner.Creature, DynamicVars.Power<LiabilityPower>().BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<LiabilityPower>(choiceContext, Owner.Creature,
+            DynamicVars.Power<LiabilityPower>().BaseValue, Owner.Creature, this);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
     }
 
@@ -28,6 +32,4 @@ public class CreditCard() : JimboCard(1, CardType.Skill,
     {
         DynamicVars.Block.UpgradeValueBy(4M);
     }
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<LiabilityPower>()];
 }

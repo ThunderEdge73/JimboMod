@@ -51,7 +51,7 @@ public static class MultChipsCmd
 
     public static decimal GetPoints(Player player)
     {
-        return player.Creature.GetPowerAmount<PointsPower>();
+        return player.PlayerCombatState == null ? 0 : player.Creature.GetPowerAmount<PointsPower>();
     }
 
     public static decimal CalculatePointsEarned(Player player)

@@ -17,7 +17,7 @@ public class Bet() : JimboCard(1, CardType.Attack,
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, creature) =>
             Math.Floor(
                 MultChipsCmd.CalculatePointsEarned(card.Owner) * card.DynamicVars["ScorePercent"].BaseValue / 100M)),
-        new ("ScorePercent", 10M)
+        new("ScorePercent", 10M)
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [JimboKeywords.Score];
