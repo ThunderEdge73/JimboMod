@@ -12,7 +12,7 @@ namespace Jimbo.JimboCode.Cards.Common;
 public class CreditCard() : JimboCard(1, CardType.Skill,
     CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(9M, ValueProp.Move), new PowerVar<LiabilityPower>(10M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(9M, ValueProp.Move), new PowerVar<LiabilityPower>(8M)];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
 
