@@ -8,7 +8,7 @@ namespace Jimbo.JimboCode.Cards.Starter;
 public class Joke() : JimboCard(1, CardType.Skill,
     CardRarity.Basic, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("Mult", 4M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new("Mult", 40000000M)];
 
     protected override Task OnPlay(
         PlayerChoiceContext choiceContext,
