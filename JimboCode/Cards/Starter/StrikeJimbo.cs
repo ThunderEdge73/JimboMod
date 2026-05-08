@@ -11,7 +11,7 @@ namespace Jimbo.JimboCode.Cards.Starter;
 [Pool(typeof(JimboCardPool))]
 public class StrikeJimbo() : JimboCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6M, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
@@ -29,6 +29,6 @@ public class StrikeJimbo() : JimboCard(1, CardType.Attack, CardRarity.Basic, Tar
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3M);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

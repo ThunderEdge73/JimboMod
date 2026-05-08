@@ -12,12 +12,12 @@ public class Bet() : JimboCard(1, CardType.Attack,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CalculationBaseVar(6M),
-        new ExtraDamageVar(1M),
+        new CalculationBaseVar(6),
+        new ExtraDamageVar(1),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, creature) =>
             Math.Floor(
-                MultChipsCmd.CalculatePointsEarned(card.Owner) * card.DynamicVars["ScorePercent"].BaseValue / 100M)),
-        new("ScorePercent", 10M)
+                MultChipsCmd.CalculatePointsEarned(card.Owner) * card.DynamicVars["ScorePercent"].BaseValue / 100)),
+        new("ScorePercent", 10)
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [JimboKeywords.Score];
@@ -36,6 +36,6 @@ public class Bet() : JimboCard(1, CardType.Attack,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(3M);
+        DynamicVars.CalculationBase.UpgradeValueBy(3);
     }
 }

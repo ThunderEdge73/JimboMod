@@ -13,7 +13,7 @@ public class CreditCard() : JimboCard(1, CardType.Skill,
     CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new BlockVar(8M, ValueProp.Move), new PowerVar<LiabilityPower>(8M)];
+        [new BlockVar(8, ValueProp.Move), new PowerVar<LiabilityPower>(8)];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
 
@@ -30,6 +30,6 @@ public class CreditCard() : JimboCard(1, CardType.Skill,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(4M);
+        DynamicVars.Block.UpgradeValueBy(4);
     }
 }

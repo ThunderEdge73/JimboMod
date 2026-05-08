@@ -77,7 +77,7 @@ public partial class MultChipsUi : Control
             {
                 formatted = formatted[..^1];
             }
-            if (formatted.EndsWith('.')) formatted += "0";
+            if (formatted.EndsWith('.')) formatted = formatted[..^1];
         }
         else
         {

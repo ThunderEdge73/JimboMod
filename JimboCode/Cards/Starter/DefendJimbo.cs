@@ -9,7 +9,7 @@ namespace Jimbo.JimboCode.Cards.Starter;
 public class DefendJimbo() : JimboCard(1, CardType.Attack,
     CardRarity.Basic, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5M, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move)];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
 
@@ -22,6 +22,6 @@ public class DefendJimbo() : JimboCard(1, CardType.Attack,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3M);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 }
