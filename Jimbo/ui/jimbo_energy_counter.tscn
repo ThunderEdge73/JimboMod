@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://bempl27mfh8hu"]
+
+[ext_resource type="Texture2D" uid="uid://dva7k60usfsqf" path="res://Jimbo/images/charui/jimbo_energy.png" id="1_w5r3g"]
+
+[sub_resource type="Gradient" id="Gradient_w5r3g"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hoftf"]
+gradient = SubResource("Gradient_w5r3g")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[node name="JimboEnergy" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="EnergyVFXBack" type="Node2D" parent="."]
+position = Vector2(64, 64)
+
+[node name="Layers" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RotationLayers" type="Control" parent="Layers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RotatingEnergyBack" type="TextureRect" parent="Layers/RotationLayers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture = SubResource("GradientTexture2D_hoftf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EnergyIcon" type="TextureRect" parent="Layers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w5r3g")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EnergyVFXFront" type="Node2D" parent="."]
+position = Vector2(64, 64)
+
+[node name="EnergyLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 16
+theme_override_font_sizes/font_size = 37
+horizontal_alignment = 1
+vertical_alignment = 1

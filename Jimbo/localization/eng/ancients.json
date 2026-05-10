@@ -1,6 +1,11 @@
 {
-  "THE_ARCHITECT.talk.JIMBO-JIMBO.0-0r.char": "I am angry at the architect",
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.0-0r.char": "How'd ya like that magic trick?",
   "THE_ARCHITECT.talk.JIMBO-JIMBO.0-0r.next": "Continue",
-  "THE_ARCHITECT.talk.JIMBO-JIMBO.0-1r.ancient": "You die",
-  "THE_ARCHITECT.talk.JIMBO-JIMBO.0-attack": "Both"
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.0-1r.ancient": "I didn't know clowns could be so annoying... [jitter]BEGONE!![/jitter]",
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.1-0r.ancient": "What is this clown doing here?",
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.1-0r.next": "Answer",
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.1-1r.char": "Would you be so kind as to send me back home?",
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.1-1r.next": "Continue",
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.1-2r.ancient": "I don't even know where you came from.",
+  "THE_ARCHITECT.talk.JIMBO-JIMBO.0-attack": "Hey!"
 }

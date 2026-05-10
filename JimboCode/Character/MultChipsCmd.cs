@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using BaseLib.Audio;
 using BaseLib.Utils;
 using Jimbo.JimboCode.Powers;
 using MegaCrit.Sts2.Core.Commands;

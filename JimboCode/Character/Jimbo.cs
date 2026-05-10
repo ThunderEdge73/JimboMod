@@ -11,9 +11,14 @@ namespace Jimbo.JimboCode.Character;
 
 public class Jimbo : PlaceholderCharacterModel
 {
+    public override List<string> GetArchitectAttackVfx()
+    {
+        return ["vfx/vfx_attack_slash", "vfx/vfx_attack_slash", "vfx/vfx_attack_slash"];
+    }
+
     public const string CharacterId = "Jimbo";
 
-    public static readonly Color Color = new("edc02d");
+    public static readonly Color Color = new("ffffffff");
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Masculine;
@@ -56,6 +61,7 @@ public class Jimbo : PlaceholderCharacterModel
         }
     }
 
+    public override string CustomEnergyCounterPath => "res://Jimbo/ui/jimbo_energy_counter.tscn";
     public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
