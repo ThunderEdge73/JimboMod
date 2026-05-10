@@ -18,7 +18,7 @@ public class Jimbo : PlaceholderCharacterModel
 
     public const string CharacterId = "Jimbo";
 
-    public static readonly Color Color = new("ffffffff");
+    public static readonly Color Color = new("3c4368");
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Masculine;

@@ -1,14 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bempl27mfh8hu"]
 
 [ext_resource type="Texture2D" uid="uid://dva7k60usfsqf" path="res://Jimbo/images/charui/jimbo_energy.png" id="1_w5r3g"]
-
-[sub_resource type="Gradient" id="Gradient_w5r3g"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hoftf"]
-gradient = SubResource("Gradient_w5r3g")
-fill = 2
-fill_from = Vector2(0.5, 0.5)
+[ext_resource type="Texture2D" uid="uid://cqnypcy7s5bjw" path="res://Jimbo/images/charui/jimbo_energy_layer1.png" id="2_4u5if"]
+[ext_resource type="Texture2D" uid="uid://b3omr8xunscn" path="res://Jimbo/images/charui/jimbo_energy_layer2.png" id="3_wjn7e"]
 
 [node name="JimboEnergy" type="Control"]
 layout_mode = 3
@@ -32,6 +26,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="EnergyIcon" type="TextureRect" parent="Layers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w5r3g")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="RotationLayers" type="Control" parent="Layers"]
 layout_mode = 1
 anchors_preset = 15
@@ -41,26 +46,31 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="RotatingEnergyBack" type="TextureRect" parent="Layers/RotationLayers"]
+[node name="Energy1" type="TextureRect" parent="Layers/RotationLayers"]
+modulate = Color(0.88235295, 0.4627451, 0.83137256, 0.8745098)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(64, 64)
-texture = SubResource("GradientTexture2D_hoftf")
+texture = ExtResource("2_4u5if")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="EnergyIcon" type="TextureRect" parent="Layers"]
+[node name="Energy2" type="TextureRect" parent="Layers/RotationLayers"]
+modulate = Color(0.7372549, 0.7372549, 0.7372549, 0.78431374)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_w5r3g")
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("3_wjn7e")
 expand_mode = 1
 stretch_mode = 4
 
