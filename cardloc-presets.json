@@ -44,7 +44,7 @@
         {
           "name": "smartDescription",
           "file": "powers.json",
-          "optional": true
+          "optional": false
         }
       ]
     },

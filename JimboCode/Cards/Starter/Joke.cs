@@ -3,6 +3,7 @@ using Jimbo.JimboCode.Character;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
@@ -13,19 +14,18 @@ public class Joke() : JimboCard(1, CardType.Skill,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new("Mult", 4), new PowerVar<WeakPower>(1)];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>()];
+
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
         MultChipsCmd.AddMult(play.Card.Owner, DynamicVars["Mult"].IntValue);
-        var targetedEnemy = CombatState != null
-            ? Owner.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies)
-            : null;
+        ArgumentNullException.ThrowIfNull(CombatState);
+        var targetedEnemy = Owner.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies);
         if (targetedEnemy != null)
-        {
             await PowerCmd.Apply<WeakPower>(choiceContext, targetedEnemy,
                 DynamicVars.Power<WeakPower>().BaseValue, Owner.Creature, this);
-        }
     }
 
     protected override void OnUpgrade()

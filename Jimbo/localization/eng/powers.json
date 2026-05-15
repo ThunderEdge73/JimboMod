@@ -3,5 +3,9 @@
   "JIMBO-LIABILITY_POWER.smartDescription": "When taking damage, lose [blue]{Amount}[/blue] Liability. When losing Liability, lose [gold]Gold[/gold] equal to the amount of Liability lost.",
   "JIMBO-LIABILITY_POWER.title": "Liability",
   "JIMBO-POINTS_POWER.description": "Gained after playing a card with [gold]Score[/gold].",
-  "JIMBO-POINTS_POWER.title": "Points"
+  "JIMBO-POINTS_POWER.smartDescription": "Gained after playing a card with [gold]Score[/gold].",
+  "JIMBO-POINTS_POWER.title": "Points",
+  "JIMBO-HOUSE_RULES_POWER.title": "House Rules",
+  "JIMBO-HOUSE_RULES_POWER.description": "At the start of your turn, choose [blue]1[/blue] card in your [gold]Hand[/gold] to Transform into a random Attack, Skill, or Power.",
+  "JIMBO-HOUSE_RULES_POWER.smartDescription": "At the start of your turn, choose [blue]{Amount} [/blue]{Amount:plural:card|cards} in your [gold]Hand[/gold] to [gold]Transform[/gold] into a random Attack, Skill, or Power."
 }
