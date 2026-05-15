@@ -3,6 +3,5 @@
   "JIMBO-LIABILITY_POWER.smartDescription": "When taking damage, lose [blue]{Amount}[/blue] Liability. When losing Liability, lose [gold]Gold[/gold] equal to the amount of Liability lost.",
   "JIMBO-LIABILITY_POWER.title": "Liability",
   "JIMBO-POINTS_POWER.description": "Gained after playing a card with [gold]Score[/gold].",
-  "JIMBO-POINTS_POWER.smartDescription": "Gained after playing a card with [gold]Score[/gold].",
   "JIMBO-POINTS_POWER.title": "Points"
 }

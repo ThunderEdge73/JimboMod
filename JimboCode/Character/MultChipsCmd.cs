@@ -13,16 +13,19 @@ public static class MultChipsCmd
 {
     public static void MultiplyMult(Player player, decimal mult)
     {
+        ModAudio.PlaySound(MainFile.JimboSounds["x_mult.ogg"], 3f);
         SetMult(player, GetMult(player) * mult);
     }
 
     public static void AddMult(Player player, decimal mult)
     {
+        ModAudio.PlaySound(MainFile.JimboSounds["plus_mult.ogg"], 3f);
         SetMult(player, GetMult(player) + mult);
     }
 
     public static void AddChips(Player player, decimal chips)
     {
+        ModAudio.PlaySound(MainFile.JimboSounds["plus_chips.ogg"], 3f);
         SetChips(player, GetChips(player) + chips);
     }
 
@@ -75,6 +78,7 @@ public class MultChipsPointsSingleton() : CustomSingletonModel(true, false)
         var pts = MultChipsCmd.CalculatePointsEarned(player);
         Chips.Set(player.PlayerCombatState, 0);
         Mult.Set(player.PlayerCombatState, 0);
+        ModAudio.PlaySound(MainFile.JimboSounds["mod_score.ogg"], 3f);
         await PowerCmd.Apply<PointsPower>(choiceContext, player.Creature, pts, player.Creature, cardPlay.Card);
     }
 }

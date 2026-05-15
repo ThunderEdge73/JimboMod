@@ -1,0 +1,75 @@
+﻿{
+  "projectId": "Jimbo",
+  "localizationBase": "Jimbo/localization/eng",
+  "presets": [
+    {
+      "id": "card",
+      "markers": [
+        "JimboCard"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "cards.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "cards.json",
+          "optional": false
+        },
+        {
+          "name": "selectionScreenPrompt",
+          "file": "cards.json",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "markers": [
+        "JimboPower"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "powers.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "powers.json",
+          "optional": false
+        },
+        {
+          "name": "smartDescription",
+          "file": "powers.json",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "relic",
+      "markers": [
+        "JimboRelic"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "relics.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "relics.json",
+          "optional": false
+        },
+        {
+          "name": "flavor",
+          "file": "relics.json",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

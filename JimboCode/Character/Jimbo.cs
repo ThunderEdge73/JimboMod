@@ -1,8 +1,8 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using Jimbo.JimboCode.Extensions;
 using Godot;
 using Jimbo.JimboCode.Cards.Starter;
+using Jimbo.JimboCode.Extensions;
 using Jimbo.JimboCode.Relics;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
@@ -11,11 +11,6 @@ namespace Jimbo.JimboCode.Character;
 
 public class Jimbo : PlaceholderCharacterModel
 {
-    public override List<string> GetArchitectAttackVfx()
-    {
-        return ["vfx/vfx_attack_slash", "vfx/vfx_attack_slash", "vfx/vfx_attack_slash"];
-    }
-
     public const string CharacterId = "Jimbo";
 
     public static readonly Color Color = new("3c4368");
@@ -23,7 +18,7 @@ public class Jimbo : PlaceholderCharacterModel
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Masculine;
     public override int StartingHp => 70;
-    
+
     public override IEnumerable<CardModel> StartingDeck =>
     [
         ModelDb.Card<StrikeJimbo>(),
@@ -35,7 +30,7 @@ public class Jimbo : PlaceholderCharacterModel
         ModelDb.Card<DefendJimbo>(),
         ModelDb.Card<DefendJimbo>(),
         ModelDb.Card<Bet>(),
-        ModelDb.Card<Joke>(),
+        ModelDb.Card<Joke>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
@@ -46,7 +41,7 @@ public class Jimbo : PlaceholderCharacterModel
     public override CardPoolModel CardPool => ModelDb.CardPool<JimboCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<JimboRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<JimboPotionPool>();
-    
+
     /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
         override all the other methods that define those assets.
         These are just some of the simplest assets, given some placeholders to differentiate your character with.
@@ -61,7 +56,7 @@ public class Jimbo : PlaceholderCharacterModel
         }
     }
 
-    public override string CustomEnergyCounterPath => "res://Jimbo/ui/jimbo_energy_counter.tscn";
+    public override string CustomEnergyCounterPath => "jimbo_energy_counter.tscn".UiPath();
     public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();

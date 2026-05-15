@@ -1,6 +1,4 @@
-﻿using Godot;
-
-namespace Jimbo.JimboCode.Character;
+﻿namespace Jimbo.JimboCode.Character;
 
 public static class JimboUtils
 {

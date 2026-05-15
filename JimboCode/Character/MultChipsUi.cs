@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Godot;
+using Jimbo.JimboCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 
@@ -7,9 +8,9 @@ namespace Jimbo.JimboCode.Character;
 
 public partial class MultChipsUi : Control
 {
-    private const decimal ESwitchPoint = 1_000_000;
+    private const decimal ESwitchPoint = 10_000_000;
 
-    public static AddedNode<NCreature, Control> MultChipsNode = new("res://Jimbo/ui/mult_chips.tscn", (_, ui) =>
+    public static AddedNode<NCreature, Control> MultChipsNode = new("mult_chips.tscn".UiPath(), (_, ui) =>
     {
         ui.Position = new Vector2(0, -450);
         ui.Visible = false;
@@ -53,36 +54,32 @@ public partial class MultChipsUi : Control
     {
         if (num >= ESwitchPoint)
         {
-            var exp = (int) Math.Log10((double) num);
-            var mantissa = (double) num / Math.Pow(10, exp);
+            var exp = (int)Math.Log10((double)num);
+            var mantissa = (double)num / Math.Pow(10, exp);
             var mantissaString = exp switch
             {
                 >= 100 => mantissa.ToString("N1"),
                 >= 10 => mantissa.ToString("N2"),
                 _ => mantissa.ToString("N3")
             };
-            while (mantissaString.EndsWith('0'))
-            {
-                mantissaString = mantissaString[..^1];
-            }
+            while (mantissaString.EndsWith('0')) mantissaString = mantissaString[..^1];
             if (mantissaString.EndsWith('.')) mantissaString += "0";
             return mantissaString + "e" + exp;
         }
+
         string formatted;
         if (Math.Floor(num) != num && num < 100)
         {
             formatted = num.ToString(num >= 10 ? "N1" : "N2");
             if (num < 0.01M) return num.ToString("N");
-            while (formatted.EndsWith('0'))
-            {
-                formatted = formatted[..^1];
-            }
+            while (formatted.EndsWith('0')) formatted = formatted[..^1];
             if (formatted.EndsWith('.')) formatted = formatted[..^1];
         }
         else
         {
             formatted = num.ToString("N0");
         }
+
         return formatted;
     }
 }
