@@ -1,50 +1,26 @@
-﻿using Jimbo.JimboCode.Powers;
-using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Utils;
+using Jimbo.JimboCode.Character;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Jimbo.JimboCode.Cards.Ancient;
 
-public class AllIn() : JimboCard(1, CardType.Attack,
-    CardRarity.Ancient, TargetType.AnyEnemy)
+public class AllIn : JimboCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CalculationBaseVar(12),
-        new ExtraDamageVar(1),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
-            Math.Floor(
-                card.DynamicVars["PointsGained"].BaseValue * card.DynamicVars["ScorePercent"].BaseValue / 100)),
-        new("ScorePercent", 10),
-        new("PointsGained", 0)
-    ];
-
-    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount,
-        Creature? applier,
-        CardModel? cardSource)
+    public AllIn() : base(1, CardType.Attack,
+        CardRarity.Ancient, TargetType.AllEnemies)
     {
-        if (applier == Owner.Creature && power is PointsPower) DynamicVars["PointsGained"].UpgradeValueBy(amount);
-        return Task.CompletedTask;
+        WithVar("ScorePercent", 10);
+        WithCalculatedDamage(9, (model, _) => Math.Floor(
+                MultChipsCmd.CalculatePointsEarned(model.Owner) * model.DynamicVars["ScorePercent"].BaseValue / 100),
+            upgrade: 3);
+        WithKeywords(JimboKeywords.Score, CardKeyword.Retain);
     }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        ArgumentNullException.ThrowIfNull(CombatState);
-        await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-            .FromCard(this)
-            .TargetingAllOpponents(CombatState)
-            .WithHitFx("vfx/vfx_attack_slash")
-            .Execute(choiceContext);
-    }
-
-    protected override void OnUpgrade()
-    {
-        DynamicVars.CalculationBase.UpgradeValueBy(4);
+        await CommonActions.CardAttack(this, play, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
     }
 }

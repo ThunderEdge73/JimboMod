@@ -8,12 +8,14 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Jimbo.JimboCode.Cards.Ancient;
 
-public class HouseRules() : JimboCard(1, CardType.Power,
-    CardRarity.Ancient, TargetType.Self)
+public class HouseRules : JimboCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<HouseRulesPower>(1)];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Transform)];
+    public HouseRules() : base(1, CardType.Power,
+        CardRarity.Ancient, TargetType.Self)
+    {
+        WithVar(new PowerVar<HouseRulesPower>(1));
+        WithTip(StaticHoverTip.Transform);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,

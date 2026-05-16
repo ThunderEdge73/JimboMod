@@ -1,23 +1,20 @@
 ﻿using BaseLib.Extensions;
+using BaseLib.Utils;
 using Jimbo.JimboCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Jimbo.JimboCode.Cards.Common;
 
-public class CreditCard() : JimboCard(1, CardType.Skill,
-    CardRarity.Common, TargetType.Self)
+public class CreditCard : JimboCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new BlockVar(8, ValueProp.Move), new PowerVar<LiabilityPower>(8)];
-
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<LiabilityPower>()];
+    public CreditCard() : base(1, CardType.Skill,
+        CardRarity.Common, TargetType.Self)
+    {
+        WithBlock(8, 4);
+        WithPower<LiabilityPower>(8);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -25,7 +22,7 @@ public class CreditCard() : JimboCard(1, CardType.Skill,
     {
         await PowerCmd.Apply<LiabilityPower>(choiceContext, Owner.Creature,
             DynamicVars.Power<LiabilityPower>().BaseValue, Owner.Creature, this);
-        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
+        await CommonActions.CardBlock(this, play);
     }
 
     protected override void OnUpgrade()

@@ -10,7 +10,7 @@
   "JIMBO-CREDIT_CARD.description": "Gain {Block:diff()} [gold]Block[/gold]. Apply {LiabilityPower:diff()} [gold]Liability[/gold] to yourself.",
   "JIMBO-CREDIT_CARD.title": "Credit Card",
   "JIMBO-ALL_IN.title": "All In",
-  "JIMBO-ALL_IN.description": "Deal {CalculatedDamage:diff()} damage to all enemies. Deals additional damage equal to {ScorePercent:diff()}% of total Points gained this combat.",
+  "JIMBO-ALL_IN.description": "Deal {CalculatedDamage:diff()} damage to all enemies. Deals additional damage equal to {ScorePercent:diff()}% of Points gained from Scoring.",
   "JIMBO-SPEEDY_RULES.title": "Speedy Rules",
   "JIMBO-SPEEDY_RULES.description": "The selected {Cards:plural:card|cards} will be [gold]Transformed[/gold] into {Cards:plural:an Attack|Attacks}.",
   "JIMBO-ENDURANCE_RULES.title": "Endurance Rules",

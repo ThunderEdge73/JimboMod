@@ -15,14 +15,14 @@ public class HouseRulesPower : JimboPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Transform)];
 
     private static IReadOnlyList<CardModel> TransformOptions =>
     [
         ModelDb.Card<SpeedyRules>(),
         ModelDb.Card<EnduranceRules>(),
-        ModelDb.Card<ChaoticRules>(),
+        ModelDb.Card<ChaoticRules>()
     ];
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
@@ -33,7 +33,7 @@ public class HouseRulesPower : JimboPower
                 TransformOptions.Select(model =>
                 {
                     var cardModel = CombatState.CreateCard(model, player);
-                    cardModel.DynamicVars["Cards"].BaseValue = Amount;
+                    cardModel.DynamicVars.Cards.BaseValue = Amount;
                     return cardModel;
                 }).ToList(), player, true);
         if (selectedOption == null) return;

@@ -1,27 +1,22 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Jimbo.JimboCode.Cards.Starter;
 
-public class DefendJimbo() : JimboCard(1, CardType.Attack,
-    CardRarity.Basic, TargetType.Self)
+public class DefendJimbo : JimboCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move)];
-
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
+    public DefendJimbo() : base(1, CardType.Attack,
+        CardRarity.Basic, TargetType.Self)
+    {
+        WithBlock(5, 3);
+        WithTags(CardTag.Defend);
+    }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-    }
-
-    protected override void OnUpgrade()
-    {
-        DynamicVars.Block.UpgradeValueBy(3);
+        await CommonActions.CardBlock(this, play);
     }
 }

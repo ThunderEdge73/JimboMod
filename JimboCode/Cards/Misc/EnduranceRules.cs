@@ -1,12 +1,14 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace Jimbo.JimboCode.Cards.Misc;
 
-public class EnduranceRules() : JimboCard(-1, CardType.Status,
-    CardRarity.Status, TargetType.None)
+public class EnduranceRules : JimboCard
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Transform)];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new("Cards", 1)];
+    public EnduranceRules() : base(-1, CardType.Status,
+        CardRarity.Status, TargetType.None)
+    {
+        WithCards(1);
+        WithTip(StaticHoverTip.Transform);
+    }
 }
