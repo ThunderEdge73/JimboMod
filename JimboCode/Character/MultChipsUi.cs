@@ -15,7 +15,7 @@ public partial class MultChipsUi : Control
     public static AddedNode<NCreature, Control> MultChipsNode = new("mult_chips.tscn".ScenePath(), (creature, ui) =>
     {
         var capacity = creature.Entity.Player?.PlayerCombatState?.OrbQueue.Capacity ?? 0;
-        var y = capacity >= 3 ? -575 - Math.Max(capacity - 6, 0) * 8 : -450;
+        var y = getYOffset(capacity);
         ui.Position = new Vector2(0, y);
         ui.Visible = false;
     });
@@ -84,6 +84,11 @@ public partial class MultChipsUi : Control
 
         return formatted;
     }
+
+    public static int getYOffset(int orbCapacity)
+    {
+        return orbCapacity >= 3 ? -575 - Math.Max(orbCapacity - 6, 0) * 8 : -450;
+    }
 }
 
 [HarmonyPatch(typeof(OrbCmd), "AddSlots")]
@@ -98,7 +103,7 @@ internal static class OrbLimitIncreasedPatch
         if (uiNode == null) return;
         var tween = uiNode.CreateTween().SetEase(Tween.EaseType.Out);
         var capacity = player.PlayerCombatState?.OrbQueue.Capacity ?? 0;
-        var y = capacity >= 3 ? -575 - Math.Max(capacity - 6, 0) * 8 : -450;
+        var y = MultChipsUi.getYOffset(capacity);
         tween.TweenProperty(uiNode, "position", new Vector2(0, y), 0.25f).SetDelay(0.1);
     }
 }
@@ -115,7 +120,7 @@ internal static class OrbLimitDecreasedPatch
         if (uiNode == null) return;
         var tween = uiNode.CreateTween().SetEase(Tween.EaseType.Out);
         var capacity = player.PlayerCombatState?.OrbQueue.Capacity ?? 0;
-        var y = capacity >= 3 ? -575 - Math.Max(capacity - 6, 0) * 8 : -450;
+        var y = MultChipsUi.getYOffset(capacity);
         tween.TweenProperty(uiNode, "position", new Vector2(0, y), 0.25f).SetDelay(0.1);
     }
 }
