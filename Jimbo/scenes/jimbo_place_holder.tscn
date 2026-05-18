@@ -20,13 +20,13 @@ offset_right = 135.0
 metadata/_edit_use_anchors_ = true
 
 [node name="IntentPos" type="Marker2D" parent="."]
-position = Vector2(0, -400)
+position = Vector2(0, -375)
 
 [node name="CenterPos" type="Marker2D" parent="."]
 position = Vector2(0, -190)
 
 [node name="OrbPos" type="Marker2D" parent="."]
-position = Vector2(0, -450)
+position = Vector2(0, -425)
 
 [node name="TalkPos" type="Marker2D" parent="."]
 position = Vector2(99, -314)
