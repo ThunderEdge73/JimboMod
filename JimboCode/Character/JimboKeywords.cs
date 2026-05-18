@@ -8,8 +8,14 @@ public static class JimboKeywords
 {
     [CustomEnum] [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Score;
+    [CustomEnum] [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Strategic;
     public static bool IsScore(this CardModel card)
     {
         return card.Keywords.Contains(Score);
+    }
+    public static bool IsStrategic(this CardModel card)
+    {
+        return card.Keywords.Contains(Strategic);
     }
 }

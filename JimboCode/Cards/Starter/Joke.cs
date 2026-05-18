@@ -20,7 +20,7 @@ public class Joke : JimboCard
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        MultChipsCmd.AddMult(play.Card.Owner, DynamicVars["Mult"].IntValue);
+        await JimboUtils.PlusMult(this);
         ArgumentNullException.ThrowIfNull(CombatState);
         var targetedEnemy = Owner.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies);
         if (targetedEnemy != null)

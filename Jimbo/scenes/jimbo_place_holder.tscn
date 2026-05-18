@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5hj1smr2cgg0"]
+
+[ext_resource type="Texture2D" uid="uid://btcq64x5u7h7t" path="res://Jimbo/images/charui/clown_placeholder.png" id="1_vqnqb"]
+
+[node name="JimboPlaceHolder" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, -185.2)
+scale = Vector2(0.85775864, 0.8577586)
+texture = ExtResource("1_vqnqb")
+
+[node name="Bounds" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -135.0
+offset_top = -375.0
+offset_right = 135.0
+metadata/_edit_use_anchors_ = true
+
+[node name="IntentPos" type="Marker2D" parent="."]
+position = Vector2(0, -400)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+position = Vector2(0, -190)
+
+[node name="OrbPos" type="Marker2D" parent="."]
+position = Vector2(0, -450)
+
+[node name="TalkPos" type="Marker2D" parent="."]
+position = Vector2(99, -314)

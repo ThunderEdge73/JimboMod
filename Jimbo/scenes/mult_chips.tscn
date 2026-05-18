@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7d6yu2sg6nwe"]
 
-[ext_resource type="Theme" uid="uid://dlm12rv0sok4u" path="res://Jimbo/ui/multchips.tres" id="1_h1oqy"]
+[ext_resource type="Theme" uid="uid://dlm12rv0sok4u" path="res://Jimbo/scenes/multchips.tres" id="1_h1oqy"]
 
 [node name="Root" type="Control"]
 layout_mode = 3

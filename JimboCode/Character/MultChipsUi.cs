@@ -1,6 +1,8 @@
 ﻿using BaseLib.Utils;
 using Godot;
+using HarmonyLib;
 using Jimbo.JimboCode.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 
@@ -10,9 +12,10 @@ public partial class MultChipsUi : Control
 {
     private const decimal ESwitchPoint = 10_000_000;
 
-    public static AddedNode<NCreature, Control> MultChipsNode = new("mult_chips.tscn".UiPath(), (_, ui) =>
+    public static AddedNode<NCreature, Control> MultChipsNode = new("mult_chips.tscn".ScenePath(), (creature, ui) =>
     {
-        ui.Position = new Vector2(0, -450);
+        var y = creature.Entity.Player?.PlayerCombatState?.OrbQueue.Capacity >= 3 ? -575 : -450;
+        ui.Position = new Vector2(0, y);
         ui.Visible = false;
     });
 
@@ -26,8 +29,7 @@ public partial class MultChipsUi : Control
         var multLabel = uiNode.GetNode<RichTextLabel>("MultChips/MultChipsRow/MultBox/MultNum");
         multLabel.Text = "[wave amp=20 freq=4]" + NumberFormat(mult);
         multLabel.PivotOffset = multLabel.Size / 2f;
-        var tween = uiNode.CreateTween().SetParallel().SetEase(Tween.EaseType.Out)
-            .SetTrans(Tween.TransitionType.Linear);
+        var tween = uiNode.CreateTween().SetParallel().SetEase(Tween.EaseType.Out);
         var rng = new RandomNumberGenerator();
         tween.TweenProperty(multLabel, "rotation", 0, 0.2f).From(rng.Randf() >= 0.5 ? 0.1f : -0.1f);
         tween.TweenProperty(multLabel, "scale", Vector2.One, 0.2f).From(new Vector2(1.1f, 1.1f));
@@ -43,8 +45,7 @@ public partial class MultChipsUi : Control
         var chipsLabel = uiNode.GetNode<RichTextLabel>("MultChips/MultChipsRow/ChipsBox/ChipsNum");
         chipsLabel.Text = "[wave amp=20 freq=4]" + NumberFormat(chips);
         chipsLabel.PivotOffset = chipsLabel.Size / 2f;
-        var tween = uiNode.CreateTween().SetParallel().SetEase(Tween.EaseType.Out)
-            .SetTrans(Tween.TransitionType.Linear);
+        var tween = uiNode.CreateTween().SetParallel().SetEase(Tween.EaseType.Out);
         var rng = new RandomNumberGenerator();
         tween.TweenProperty(chipsLabel, "rotation", 0, 0.2f).From(rng.Randf() >= 0.5 ? 0.1f : -0.1f);
         tween.TweenProperty(chipsLabel, "scale", Vector2.One, 0.2f).From(new Vector2(1.1f, 1.1f));
@@ -81,5 +82,37 @@ public partial class MultChipsUi : Control
         }
 
         return formatted;
+    }
+}
+
+[HarmonyPatch(typeof(OrbCmd), "AddSlots")]
+internal static class OrbLimitIncreasedPatch
+{
+    [HarmonyPostfix]
+    private static void AdjustMultChipsUiHeight(Player player, int amount)
+    {
+        var creatureNode = player.Creature.GetCreatureNode();
+        if (creatureNode == null) return;
+        var uiNode = MultChipsUi.MultChipsNode.Get(creatureNode);
+        if (uiNode == null) return;
+        var tween = uiNode.CreateTween().SetEase(Tween.EaseType.Out);
+        tween.TweenProperty(uiNode, "position",
+            player.PlayerCombatState?.OrbQueue.Capacity >= 3 ? new Vector2(0, -575) : new Vector2(0, -450), 0.25f);
+    }
+}
+
+[HarmonyPatch(typeof(OrbCmd), "RemoveSlots")]
+internal static class OrbLimitDecreasedPatch
+{
+    [HarmonyPostfix]
+    private static void AdjustMultChipsUiHeight(Player player, int amount)
+    {
+        var creatureNode = player.Creature.GetCreatureNode();
+        if (creatureNode == null) return;
+        var uiNode = MultChipsUi.MultChipsNode.Get(creatureNode);
+        if (uiNode == null) return;
+        var tween = uiNode.CreateTween().SetEase(Tween.EaseType.Out);
+        tween.TweenProperty(uiNode, "position",
+            player.PlayerCombatState?.OrbQueue.Capacity >= 3 ? new Vector2(0, -575) : new Vector2(0, -450), 0.25f);
     }
 }

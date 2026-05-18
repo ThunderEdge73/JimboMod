@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://dlm12rv0sok4u"]
 
 [ext_resource type="Texture2D" uid="uid://5yjpq28o8u10" path="res://Jimbo/images/charui/chips.png" id="1_ki15h"]
-[ext_resource type="FontFile" uid="uid://c3mkxvxc1s6a3" path="res://Jimbo/ui/m6x11plus.ttf" id="1_xh2ha"]
+[ext_resource type="FontFile" uid="uid://c3mkxvxc1s6a3" path="res://Jimbo/scenes/m6x11plus.ttf" id="1_xh2ha"]
 [ext_resource type="Texture2D" uid="uid://c8xpbhrkh1syn" path="res://Jimbo/images/charui/mult.png" id="2_3rttn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3rttn"]

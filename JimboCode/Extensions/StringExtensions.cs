@@ -69,9 +69,9 @@ public static class StringExtensions
         return Path.Join(MainFile.ResPath, "images", "charui", path);
     }
 
-    public static string UiPath(this string path)
+    public static string ScenePath(this string path)
     {
-        return Path.Join(MainFile.ResPath, "ui", path);
+        return Path.Join(MainFile.ResPath, "scenes", path);
     }
 
     public static string SfxPath(this string path)

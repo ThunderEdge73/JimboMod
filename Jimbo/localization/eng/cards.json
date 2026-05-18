@@ -18,5 +18,13 @@
   "JIMBO-CHAOTIC_RULES.title": "Chaotic Rules",
   "JIMBO-CHAOTIC_RULES.description": "The selected {Cards:plural:card|cards} will be [gold]Transformed[/gold] into {Cards:plural:a Power|Powers}.",
   "JIMBO-HOUSE_RULES.description": "At the start of your turn, choose [blue]{HouseRulesPower:diff()}[/blue] card in your [gold]Hand[/gold] to [gold]Transform[/gold] into a random Attack, Skill, or Power.",
-  "JIMBO-HOUSE_RULES.title": "House Rules"
+  "JIMBO-HOUSE_RULES.title": "House Rules",
+  "JIMBO-TAG.title": "Tag",
+  "JIMBO-TAG.description": "Gain {Chips:diff()} Chips.",
+  "JIMBO-GROS_MICHEL.title": "Gros Michel",
+  "JIMBO-GROS_MICHEL.description": "Gain {Mult:diff()} Mult.",
+  "JIMBO-EVEN_STEVEN.title": "Even Steven",
+  "JIMBO-EVEN_STEVEN.description": "Deal {Damage:diff()} damage to all enemies. Gain {Mult:diff()} Mult.",
+  "JIMBO-ODD_TODD.title": "Odd Todd",
+  "JIMBO-ODD_TODD.description": "Deal {Damage:diff()} damage to an enemy whose HP is odd."
 }
