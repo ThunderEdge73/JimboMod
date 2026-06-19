@@ -4,7 +4,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 
-namespace Jimbo.JimboCode.Character;
+namespace Jimbo.JimboCode.Misc;
 
 // public static class JimboCustomTargetType
 // {

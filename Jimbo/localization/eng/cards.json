@@ -26,5 +26,5 @@
   "JIMBO-EVEN_STEVEN.title": "Even Steven",
   "JIMBO-EVEN_STEVEN.description": "Deal {Damage:diff()} damage to all enemies. Gain {Mult:diff()} Mult.",
   "JIMBO-ODD_TODD.title": "Odd Todd",
-  "JIMBO-ODD_TODD.description": "Deal {Damage:diff()} damage to an enemy whose HP is odd."
+  "JIMBO-ODD_TODD.description": "Deal {Damage:diff()} damage.\nGain {Chips:diff()} Chips."
 }

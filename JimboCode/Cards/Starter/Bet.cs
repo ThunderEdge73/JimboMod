@@ -2,6 +2,7 @@
 using BaseLib.Utils;
 using Jimbo.JimboCode.Cards.Ancient;
 using Jimbo.JimboCode.Character;
+using Jimbo.JimboCode.Misc;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;

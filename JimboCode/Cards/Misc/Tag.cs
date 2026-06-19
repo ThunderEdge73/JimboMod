@@ -1,5 +1,6 @@
 ﻿using Jimbo.JimboCode.Cards;
 using Jimbo.JimboCode.Character;
+using Jimbo.JimboCode.Misc;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -11,7 +12,7 @@ public class Tag : JimboCard
     public Tag(): base(0, CardType.Skill,
         CardRarity.Token, TargetType.Self)
     {
-        WithVar("Chips", 5, 5);
+        WithChips(4, 4);
         WithKeyword(CardKeyword.Exhaust);
     }
     

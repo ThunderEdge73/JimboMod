@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using Jimbo.JimboCode.Character;
+using Jimbo.JimboCode.Misc;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,7 +13,7 @@ public class Joke : JimboCard
     public Joke() : base(1, CardType.Skill,
         CardRarity.Basic, TargetType.Self)
     {
-        WithVar("Mult", 4, 2);
+        WithMult(4, 2);
         WithPower<WeakPower>(1);
     }
 

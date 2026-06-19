@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Jimbo.JimboCode.Character;
+using Jimbo.JimboCode.Misc;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -11,12 +12,14 @@ public class OddTodd : JimboCard
         CardRarity.Common, TargetType.AnyEnemy)
     {
         WithDamage(9, 4);
+        WithChips(5);
     }
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await JimboUtils.PlusChips(this);
         await CommonActions.CardAttack(this, play, vfx: "vfx/vfx_attack_slash").Execute(choiceContext);
     }
 }

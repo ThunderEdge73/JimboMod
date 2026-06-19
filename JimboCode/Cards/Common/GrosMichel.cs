@@ -1,4 +1,5 @@
 ﻿using Jimbo.JimboCode.Character;
+using Jimbo.JimboCode.Misc;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -9,7 +10,7 @@ public class GrosMichel : JimboCard
     public GrosMichel() : base(1, CardType.Skill,
         CardRarity.Common, TargetType.Self)
     {
-        WithVar("Mult", 12, 3);
+        WithMult(10, 5);
         WithKeyword(CardKeyword.Exhaust);
     }
 

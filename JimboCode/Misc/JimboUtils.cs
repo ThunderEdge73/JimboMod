@@ -1,6 +1,6 @@
 ﻿using MegaCrit.Sts2.Core.Models;
 
-namespace Jimbo.JimboCode.Character;
+namespace Jimbo.JimboCode.Misc;
 
 public static class JimboUtils
 {

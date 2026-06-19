@@ -1,13 +1,14 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Audio;
 using BaseLib.Utils;
+using Jimbo.JimboCode.Character;
 using Jimbo.JimboCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
-namespace Jimbo.JimboCode.Character;
+namespace Jimbo.JimboCode.Misc;
 
 public static class MultChipsCmd
 {
@@ -65,7 +66,7 @@ public static class MultChipsCmd
     }
 }
 
-public class MultChipsPointsSingleton() : CustomSingletonModel(true, false)
+public class MultChipsPointsSingleton() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<PlayerCombatState, decimal> Chips = new(() => 0);
 
